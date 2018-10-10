@@ -14,7 +14,7 @@
   (let [wss
         (client/get
          (apply str
-          "https://api.darksky.net/forecast/" (clojure.string/trim-newline (slurp (io/resource "secret.txt"))) "/43.0731,89.4012") {:as :json})]
+          "https://api.darksky.net/forecast/" (clojure.string/trim-newline (slurp (io/resource "secret.txt"))) "/43.0731,-89.4012") {:as :json})]
   (println "Your weather summary is:" (get-in wss [:body :currently :summary]))
   (println "The temp is: " (get-in wss [:body :currently :temperature]))))
 
