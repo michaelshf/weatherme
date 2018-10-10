@@ -1,8 +1,8 @@
 (ns weatherme.core
   (:gen-class)
-  (:require [weatherme.api-caller :as caller]))
+  (:require [weatherme.api-call :as call]))
 
 (defn -main
   [& args]
   (println "Getting your weather... ")
-  (caller/report-weather))
+  (call/report-weather))
