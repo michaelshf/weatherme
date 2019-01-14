@@ -1,0 +1,17 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure       {:mvn/version "1.10.0-alpha6"}
+        com.cognitect/transit-clj {:mvn/version "0.8.300" :exclusions [org.javassist/javassist]}
+        cheshire/cheshire         {:mvn/version "5.8.0"}
+        clj-http                  {:mvn/version "3.9.0" :exclusions [commons-logging/commons-logging]}
+        compojure                 {:mvn/version "1.6.0"}
+        org.clojure/test.check    {:mvn/version "0.10.0-alpha3"}
+        ring/ring-core            {:mvn/version "1.6.3"}
+        ring/ring-jetty-adapter   {:mvn/version "1.6.3"}
+        ring/ring-defaults        {:mvn/version "0.3.1"}
+        ring.middleware.conditional {:mvn/version "0.2.0"}
+        ring/ring-json            {:mvn/version "0.4.0"}
+        io.sentry/sentry          {:mvn/version "1.7.3"}
+        cognician/dogstatsd-clj   {:mvn/version "0.1.1"}
+        com.datomic/client-pro {:mvn/version "0.8.20"}
+        }
+}
