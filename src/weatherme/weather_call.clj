@@ -12,7 +12,4 @@
         (client/get
          (str
           "https://api.darksky.net/forecast/" (clojure.string/trim-newline (slurp (io/resource "forecast.secret"))) "/" lat "," lon) {:as :json})]
-  (println "Your [ROUTE] weather summary is:" (get-in wss [:body :currently :summary]))
-  (println "The temp is: " (get-in wss [:body :currently :temperature]))))
-
-
+  (get-in wss [:body :currently :summary])))
