@@ -20,6 +20,5 @@
     routes))
 
 
-(class (get-location-routes 43.07 -89.40))
-(class (weather/report-weather 43.0731 -89.4012))
-(class (get-specific-routes 105748391))
+(get-location-routes 43.07 -104.99)
+(weather/report-weather 43.0731 -89.4012)

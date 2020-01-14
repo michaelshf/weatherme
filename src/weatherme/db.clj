@@ -13,7 +13,7 @@
 ;; Tools for DB Interaction
 ; make a table-
 ;(j/db-do-commands $DB_SPEC "create table $TABLE_NAME ($COLNAME $COLTYPE")
-;(j/db-do-commands spec "create table snapshot (summary varchar)")
+(j/db-do-commands spec "create table weather (summary varchar)")
 
 
 ;; insert data
