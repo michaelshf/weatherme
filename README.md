@@ -5,10 +5,10 @@ An app for planning outdoor adventures.
 Update: This project was put away for some time, but I've got free time to start working on it again.
 
 ## Todos:
-- Weather
-- - Weather accuracy comparison
-- - - Will need DB read/write - pref jdbc, psql
-- - Weather/climbing comparison
+### Weather
+#### Accuracy comparison
+X Will need DB read/write - pref jdbc, psql
+- Each run should: add weather to db, compare against last entry, print diff (start with temp?)
 
 - Climbing Route Finding
 - - Find all routes with a passed max difficulty, passed location and passed max distance
