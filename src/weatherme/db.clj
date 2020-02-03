@@ -19,7 +19,8 @@
             :password ""})
 
 ;; make a table-
-;(j/db-do-commands $DB_SPEC "create table $TABLE_NAME ($COLNAME $COLTYPE, $COLNAME $COLTYPE")
+;(j/db-do-commands $DB_SPEC
+;  "create table $TABLE_NAME ($COLNAME $COLTYPE, $COLNAME $COLTYPE")
 (defn make-table
   "Takes dbspec, new table name, and a vector of column names.
    Makes tables with varchar columns, and a timestamp column."
@@ -33,7 +34,7 @@
                          ")")))
 
 ;(make-table pg-db "testinserts" ["col1" "col2" "col3" "col4"])
-(make-table pg-db "forecasts" ["temp max" ""])
+;(make-table pg-db "forecasts" ["id" "rowtype" "temp" "dateabout"])
 
 ;; insert data
 ;(j/insert! $DB_SPEC :$TABLE_NAME {:$COL_NAME $VALUE})
@@ -49,11 +50,12 @@
                (assoc (apply hash-map (interleave (map keyword col-vec)
                                                   (map str val-vec)))
                       :timestamp (c/to-sql-time (t/now))))))
-; (insert-row
-;    pg-db
-;    "testinserts"
-;    ["col1" "col2" "col3" "col4"]
-;    ["hey" "there" "fella" "guy"])
+
+;; (insert-row
+;;  pg-db
+;;  "forecasts"
+;;  ["id" "rowtype" "temp" "dateabout"]
+;;  ["2" "test" "101" "tomorrow"])
 
 ;; query table
 ;(j/query $DB_SPEC "select * from $TABLE_NAME")
@@ -68,14 +70,15 @@
  ;(j/db-do-commands pg-db "drop table $TABLE_NAME")
 (defn delete-table [db-spec table-name]
   (j/db-do-commands db-spec (str "drop table " table-name)))
-;(delete-table pg-db "weather_table_test")
-;(delete-table pg-db "newtable")
 ;(delete-table pg-db "testinserts")
+ ;(delete-table pg-db "forecasts")
+
+
 
 ;; delete data if you want...
-; using execute:
-; (jdbc/execute!
-; db-spec
-; ["DELETE FROM $TABLE_NAME WHERE $COLUMN_NAME $CONDITION (<, >) ?" $VALUE])
-; using delete!: (jdbc/delete! $DB_SPEC :$TABLE_NAME ["grade < ?" 25.0])
+                                        ; using execute:
+                                        ; (jdbc/execute!
+                                        ; db-spec
+                                        ; ["DELETE FROM $TABLE_NAME WHERE $COLUMN_NAME $CONDITION (<, >) ?" $VALUE])
+                                        ; using delete!: (jdbc/delete! $DB_SPEC :$TABLE_NAME ["grade < ?" 25.0])
 

@@ -8,7 +8,13 @@ Update: This project was put away for some time, but I've got free time to start
 ### Weather
 #### Accuracy comparison
 X Will need DB read/write - pref jdbc, psql
-- Each run should: add weather to db, compare against last entry, print diff (start with temp?)
+- Each run should:
+- - Add forecast for next day at 2PM -> to-db
+- - Grab actuals from previous day at 2PM -> to-db
+- - Compare db entries with same day?
+- - - This makes it so the program can be run at any point
+- - - during a given day, not at the exact time of previous
+- - - forecast.
 
 - Climbing Route Finding
 - - Find all routes with a passed max difficulty, passed location and passed max distance

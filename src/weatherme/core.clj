@@ -1,6 +1,6 @@
 (ns weatherme.core
   (:gen-class)
-  (:require [weatherme.weather-call :as call]
+  (:require [weatherme.weather :as weather]
             [weatherme.db :as db]
             [clojure.java.jdbc :as j]))
 
@@ -13,4 +13,4 @@
 (defn -main
   [& args]
   (println "Getting your weather... ")
-  (let [weather (call/report-weather 39.7392, -104.9903)]))
+  (weather/insert-weather 39.9 -105))
