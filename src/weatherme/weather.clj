@@ -55,7 +55,7 @@
   [lat lon]
   (let [db-spec wdb/pg-db
         tablename "forecasts"
-        colvec ["id" "rowtype" "temp" "dateabout" "timestamp"]
+        colvec ["id" "rowtype" "temp" "date_about" "day_distance" "timestamp"]
         previoustype "previous"
         futuretype "future"]
  ; first forecast row
@@ -63,19 +63,21 @@
        db-spec
        tablename
        colvec
-       [1
+       [(java.util.UUID/randomUUID)
         futuretype
         (:temperatureHigh (first (future-weather lat lon)))
-        (str (t/plus  (t/today) (t/days 1)))])
+        (str (t/plus  (t/today) (t/days 1)))
+        1])
 ; previous forecast row
     (wdb/insert-row
        db-spec
        tablename
        colvec
-       [1
+       [(java.util.UUID/randomUUID)
         previoustype
         (:temperatureHigh (first (:data (:daily (previous-weather lat lon)))))
-        (str (t/minus  (t/today) (t/days 1)))])))
+        (str (t/minus  (t/today) (t/days 1)))
+        -1])))
 
 (defn accuracy-check
   "Will: Compare 'actual' with forecasts, first one day forward - 
@@ -85,8 +87,10 @@
                                         ;(:temperatureHigh (first (:data (:daily (previous-weather lat lon))))
 
   ;; future weather path to temp high:
-                                        ;(:temperatureHigh (first (future-weather lat lon)))
 
-  )
+)
+
+;; 
 
 ;; @todo move to testing
+

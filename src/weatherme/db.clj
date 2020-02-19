@@ -1,6 +1,5 @@
 (ns weatherme.db
-  (:require [clojure.java.jdbc :as db]
-            [clojure.java.jdbc :as j]
+  (:require [clojure.java.jdbc :as j]
             [clj-time.core :as t]
             [clj-time.coerce :as c]
             [jdbc.pool.c3p0 :as pool]))
@@ -34,7 +33,7 @@
                          ")")))
 
 ;(make-table pg-db "testinserts" ["col1" "col2" "col3" "col4"])
-;(make-table pg-db "forecasts" ["id" "rowtype" "temp" "dateabout"])
+;(make-table pg-db "forecasts" ["id" "rowtype" "temp" "date_about" "day_distance"])
 
 ;; insert data
 ;(j/insert! $DB_SPEC :$TABLE_NAME {:$COL_NAME $VALUE})
